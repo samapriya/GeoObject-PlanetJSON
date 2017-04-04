@@ -1,5 +1,5 @@
 # GeoObject-PlanetJSON
-This tool makes use of gdal and pyshp libraries and proects to convert between
+This tool makes use of gdal and pyshp libraries and projects to convert between
 1) Google Earth Keyhole Markup Language or KML file
 2) ESRI shapefiles
 3) geojson file(in this case from geojson.io)
@@ -62,7 +62,6 @@ python cli_aoi2json.pyc --start 2017-01-01 --end 2017-04-02 --cloud 0.15 --input
 For GeoJSON Files
 python cli_aoi2json.pyc --start 2017-01-01 --end 2017-04-02 --cloud 0.15 --inputfile GJSON --geo "./lybbox.geojson"
 ```
-
 
 # Credits
 
