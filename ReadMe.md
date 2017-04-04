@@ -3,6 +3,7 @@ This tool makes use of gdal and pyshp libraries and projects to convert between
 1) Google Earth Keyhole Markup Language or KML file
 2) ESRI shapefiles
 3) geojson file(in this case from geojson.io)
+4) Well Known Text(WKT file from geojson.io)
 
 This allows the user to struture the JSON file to be used by Planet API V1.0 for downloading PlanetScope and RapidEye Assets and can now also support Landsat and Sentinel2 downloads. 
 
@@ -32,11 +33,10 @@ The first step is to define a area that is available for download under your Pla
 This tool can be used to convert from kml(google earth file)/shapefile(ESRI) or geojson file from geojson.io to structured aoi.json used for querying planet datasets using API 1.0. The output is a file aoi.json which can then be used to query and download using cli_jsonparse tool.
 
 ```
-usage: cli_aoi2json.pyc [-h] [--start START] [--end END] [--cloud CLOUD]
-                        [--inputfile INPUTFILE] [--geo GEO]
-
-Tool to convert KML, Shapefile or GeoJSON file to AreaOfInterest.JSON file
-with structured query for use with Planet API 1.0
+usage: Tool to convert KML, Shapefile,WKT or GeoJSON file to AreaOfInterest.JSON file with
+structured query for use with Planet API 1.0
+       [-h] [--start START] [--end END] [--cloud CLOUD]
+       [--inputfile INPUTFILE] [--geo GEO]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -44,9 +44,9 @@ optional arguments:
   --end END             End date in YYYY-MM-DD?
   --cloud CLOUD         Maximum Cloud Cover(0-1) representing 0-100
   --inputfile INPUTFILE
-                        Choose a kml/shapefile or geojson file for
-                        AOI(KML/SHP/GJSON
-  --geo GEO             map.geojson/aoi.kml/aoi.shp file
+                        Choose a kml/shapefile/geojson or WKT file for
+                        AOI(KML/SHP/GJSON/WKT)
+  --geo GEO             map.geojson/aoi.kml/aoi.shp/aoi.wkt file
 ```
 
 ## Converting to Structured JSON
@@ -61,6 +61,9 @@ python cli_aoi2json.pyc --start 2017-01-01 --end 2017-04-02 --cloud 0.15 --input
 
 For GeoJSON Files
 python cli_aoi2json.pyc --start 2017-01-01 --end 2017-04-02 --cloud 0.15 --inputfile GJSON --geo "./lybbox.geojson"
+
+For WKT Files
+python cli_aoi2json.pyc --start 2017-01-01 --end 2017-04-02 --cloud 0.15 --inputfile WKT --geo "./lybbox.wkt"
 ```
 
 # Credits
